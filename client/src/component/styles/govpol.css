@@ -1,0 +1,33 @@
+
+
+  .container{
+      
+      /* background: #3F72AF; */
+  }
+  
+  .ratings i {
+    color: green;
+  }
+  
+  .install span {
+    font-size: 12px;
+  }
+  
+  .col-md-4 {
+    margin-top: 27px;
+  }
+
+  .card{
+    background-color: #DBE2EF;
+    margin:2vh
+  }
+
+  .govern_heading{
+    margin-top: 10vh;
+    text-align: center;
+    font-weight: 600;
+  }
+
+.imp > a {
+  color: red;
+}
