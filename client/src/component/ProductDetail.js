@@ -66,6 +66,7 @@ const ProductDetails = () => {
               <div className="detailsBlock-3">
                 <h1>{`Startup Profit -> ${product.profit}`}</h1>
                 <h1>{`Strartup Efficiency predicted from model -> ${product.efficiency}`}</h1>
+                <a href = "http://127.0.0.1:5000/predict"> Predict now</a>
                 <div className="detailsBlock-3-1">
                 </div>
               </div>
