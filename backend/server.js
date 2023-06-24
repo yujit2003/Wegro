@@ -1,7 +1,7 @@
 const app = require("./app");
 const dotenv = require("dotenv");
 const connectDatabase = require("./config/database");
-const PORT = process.env.PORT || 4000;
+const {PORT} = require("./config/env.js");
 const cors = require('cors');
 const { use } = require("./app");
 app.use(cors())

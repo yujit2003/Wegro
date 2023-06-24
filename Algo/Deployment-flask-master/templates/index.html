@@ -18,9 +18,9 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Profit" required="required" />
-        <input type="text" name="test_score" placeholder="Debt" required="required" />
-		<input type="text" name="interview_score" placeholder="Rating" required="required" />
+    	<input type="text" name="experience" placeholder="First Funding age" required="required" />
+        <input type="text" name="test_score" placeholder="Last Funding age" required="required" />
+		<input type="text" name="interview_score" placeholder="Total USD" required="required" />
     <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     <h5>
       <a href="http://localhost:3000/api/products">Click Here to move Back To Startup Page</a>

@@ -1,39 +1,63 @@
-# Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.impute import SimpleImputer
+from sklearn.metrics import confusion_matrix, classification_report, roc_curve, auc, precision_recall_curve, f1_score
 
-dataset = pd.read_csv('hiring.csv')
+dataset = pd.read_csv('./hiring.csv')
 
-dataset['experience'].fillna(0, inplace=True)
-
-dataset['test_score'].fillna(dataset['test_score'].mean(), inplace=True)
+# Dropping rows with missing target values
+# dataset.dropna(subset=['status'], inplace=True)
 
 X = dataset.iloc[:, :3]
+y = dataset.iloc[:,-1]
+print(y);
+imputer = SimpleImputer(strategy='mean')
+X = imputer.fit_transform(X)
 
-#Converting words to integer values
-def convert_to_int(word):
-    word_dict = {'one':1, 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 'eight':8,
-                'nine':9, 'ten':10, 'eleven':11, 'twelve':12, 'zero':0, 0: 0}
-    return word_dict[word]
 
-X['experience'] = X['experience'].apply(lambda x : convert_to_int(x))
+# Splitting Training and Test Set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
 
-y = dataset.iloc[:, -1]
+# Fitting model with training data
+# regressor = LinearRegression()
+# regressor.fit(X_train, y_train)
 
-#Splitting Training and Test Set
-#Since we have a very small dataset, we will train our model with all availabe data.
+from sklearn.ensemble import RandomForestClassifier
+rf = RandomForestClassifier()
 
-from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
+rf.fit(X_train,y_train)
 
-#Fitting model with trainig data
-regressor.fit(X, y)
+
+y_pred_rf = rf.predict(X_test)
+
+print("Training Accuracy :", rf.score(X_train, y_train))
+print("Testing Accuracy :", rf.score(X_test, y_test))
+
+cm = confusion_matrix(y_test, y_pred_rf)
+
+cr = classification_report(y_test, y_pred_rf)
+print(cr)
+
+
+print("------------------------------------------")
+
+false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test,y_pred_rf)
+roc_auc = auc(false_positive_rate, true_positive_rate)
+print("ROC Curves              =",roc_auc)
+
+precision, recall, thresholds = precision_recall_curve(y_test, y_pred_rf)
+f1 = f1_score(y_test, y_pred_rf)
+Precision_Recall_rfs = auc(recall, precision)
+print("Precision-Recall Curves =",Precision_Recall_rfs)
 
 # Saving model to disk
-pickle.dump(regressor, open('model.pkl','wb'))
+pickle.dump(rf, open('model.pkl', 'wb'))
+# pickle.dump(regressor, open('model.pkl', 'wb'))
 
 # Loading model to compare the results
-model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[2, 9, 6]]))
+model = pickle.load(open('model.pkl', 'rb'))
+print(model.predict([[2, 9, 100]]))

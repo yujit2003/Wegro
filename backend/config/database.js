@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const {DB_URI} = require("./env.js");
 
 const connectDatabase = () => {
 
     mongoose.set('strictQuery', false);
-    mongoose.connect("mongodb://localhost:27017/weegro", {
+    mongoose.connect(DB_URI, {
         useNewURLParser: true,
         useUnifiedTopology: true
     
@@ -15,5 +16,6 @@ const connectDatabase = () => {
     })
 
 }
+// password : hW89zkjQDZRc5WFW
 
 module.exports = connectDatabase
