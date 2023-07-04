@@ -28,10 +28,10 @@ exports.getAllProducts = catchAsyncError(async (req,res, next) =>{
     //  .filter()
     //  .pagination(resultPerPage);
     const results=await Product.find({});
+    // console.log(products)
     console.log(results);
         // hr function mai query return krrahe hain 
     //  const products = await apiFeatures.query;
-    //  console.log(products)
      res.setHeader('Access-Control-Allow-Origin','*');
      res.status(200).json({
        Status: true,

@@ -10,16 +10,21 @@ const startupSchema = mongoose.Schema({
     type: Number,
     required: [true, "Please Enter product Efficiency as per algo"],
   },
-  profit: {
+  city: {
     type: Number,
     required: [true, "Please Enter startup profit"]
   },
-  dept: {
+  funding_rounds: {
     type: Number,
     default: 0,
   },
-  services: {
-    type: String,
+  age_first_funding: {
+    type: Number,
+    default: 0,
+  },
+  age_last_funding: {
+    type: Number,
+    default: 0,
   },
   category: {
     type: String,

@@ -18,6 +18,8 @@ return (
       <p>{product.name}</p>
       <div>
         <ReactStars {...options} />{" "}
+        <br />
+        <br />
         <span className="productCardSpan">
           {" "}
           ({product.numOfReviews} reviews)

@@ -29,7 +29,7 @@ exports.getQuotes = async (req, res,next) => {
     });
   });
   await browser.close();
-    console.log(result);
+    // console.log(result);
 
       try { 
         res.set('Access-Control-Allow-Origin','*')

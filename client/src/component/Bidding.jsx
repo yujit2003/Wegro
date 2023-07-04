@@ -35,7 +35,7 @@ useEffect((id) => {
             <tr>
               <th>Startup</th>
               <th>Category</th>
-              <th>Max Bidding Amount</th>
+              <th>Valuation in USD</th>
               <th>Inc Bid</th>
             </tr>
           </thead>

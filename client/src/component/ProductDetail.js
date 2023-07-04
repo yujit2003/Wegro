@@ -7,6 +7,7 @@ import {
   getProductDetails,
 } from "./actions/productAction";
 import  ReactStars from "react-rating-stars-component";
+import Detailimage from "./image/detail.jpg"
 
 
 // const product = {
@@ -49,32 +50,42 @@ const ProductDetails = () => {
                 <h2>Startup Name : {product.name}</h2>
                 <p>Startup ID # {product._id}</p>
               </div>
-              <div className="detailsBlock-2">
-                <ReactStars {...options} />
-                <span className="detailsBlock-2-span">
-                  {" "}
-                  ({product.numOfReviews} Reviews)
-                  {product.reviews &&
-                  product.reviews.map((item, i) => (
-                    <>
-                    <p>rating :{item.rating}</p><br></br>
-                    <p>comment :{item.comment}</p>
-                    </>
-                  ))}
-                </span>
-              </div>
-              <div className="detailsBlock-3">
-                <h1>{`Startup Profit -> ${product.profit}`}</h1>
-                <h1>{`Strartup Efficiency predicted from model -> ${product.efficiency}`}</h1>
-                <a href = "http://127.0.0.1:5000/predict"> Predict now</a>
-                <div className="detailsBlock-3-1">
-                </div>
-              </div>
-
               <div className="detailsBlock-4">
                 Category : <p>{product.category}</p>
               </div>
-            </div>
+              <div className="detailsBlock-2">
+                {/* <ReactStars {...options} /> */}
+              </div>
+              <div className="detailsContainer">
+                  <img src={Detailimage} alt="connect" /> 
+                <div className="detailstartup">
+                  <h4>{`Startup Valuation -> ${product.valuation} USD`}</h4>
+                  <h4>{`Startup Funding Rounds -> ${product.funding_rounds}`}</h4>
+                  <h4>{`First Funding at: -> ${product.age_first_funding} yrs`}</h4>
+                  <h4>{`Last Funding at: -> ${product.age_last_funding} yrs`}</h4>
+                </div>
+                <div className="efficiency">
+                  <p>{`Strartup Efficiency predicted from model -> ${product.efficiency} You Have higher chance to generate profit from this startup`}</p>
+                </div>
+              </div>
+
+                {/* <a href = "http://127.0.0.1:5000/predict"> Predict now</a> */}
+
+              
+              <div className="comment_container">
+
+                  </div>
+              <div className="reviews">
+                      ({product.numOfReviews} Reviews)
+                      {product.reviews &&
+                      product.reviews.map((item, i) => (
+                        <>
+                        <p>Name : {item.name}</p>
+                        {item.comment}
+                        </>
+                      ))} 
+                </div>
+                  </div>
           </div>
         
         </Fragment>
