@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 //Route Import
-const product = require("./routes/startupRoute");
+const product = require("./Routes/startupRoute");
 
 app.use("/api", product);
 // app.use("/api/v1", user);
