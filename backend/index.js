@@ -4,6 +4,7 @@ const cors = require("cors");
 
 
 exports.getQuotes = async (req, res,next) => {
+  res.set('Access-Control-Allow-Origin','*')
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
