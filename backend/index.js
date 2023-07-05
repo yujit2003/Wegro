@@ -8,6 +8,12 @@ exports.getQuotes = async (req, res,next) => {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: null,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--single-process",
+    ]
   });
   const page = await browser.newPage();
   await page.goto("https://www.startupindia.gov.in/content/sih/en/startupgov/regulatory_updates.html", {
