@@ -19,7 +19,7 @@ export const getProduct = () => async (dispatch) => {
     try {
       dispatch({ type: ALL_PRODUCT_REQUEST });
 
-      const {data} = await axios.get('http://localhost:4000/api/products');
+      const {data} = await axios.get('https://weegro.onrender.com/api/products');
       console.log(data);
       dispatch({
         type: ALL_PRODUCT_SUCCESS,
@@ -37,7 +37,7 @@ export const getProduct = () => async (dispatch) => {
 export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`http://localhost:4000/api/product/${id}`);
+    const { data } = await axios.get(`https://weegro.onrender.com/api/product/${id}`);
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -55,7 +55,7 @@ export const governementPolicy = () => async(dispatch) => {
   try {
     dispatch({ type: ALL_POLICY_REQUEST });
 
-    const data = await axios.get('http://localhost:4000/api/webscrapping');
+    const data = await axios.get('https://weegro.onrender.com/api/webscrapping');
     console.log(data.data.policy[0]);
     dispatch({
       type:ALL_POLICY_SUCCESS,
