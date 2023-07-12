@@ -20,7 +20,7 @@ const product = {
     valuation:"95",
     rating:"2"
 };
-const Home = () => {
+const   Home = () => {
 
     // const alert = useAlert();
   
