@@ -10,7 +10,6 @@ const catchAsyncError = require("../middleware/catchAsyncErrors");
 
     console.log("insife create Product")
      const product = await Product.create(req.body);
-        console.log("inside create prodduct")
      res.status(201).json({
          Status: true,
          product
@@ -21,15 +20,7 @@ const catchAsyncError = require("../middleware/catchAsyncErrors");
 // get all product list
 exports.getAllProducts = catchAsyncError(async (req,res, next) =>{
      const resultPerPage = 10;
-     console.log("yujit req gen")
-      // const ProductCount = await Product.countDocuments(); 
-    //  const apiFeatures = new ApiFeatures(Product.find(), req.query)
-    //  .search()
-    //  .filter()
-    //  .pagination(resultPerPage);
     const results=await Product.find({});
-    // console.log(products)
-    console.log(results);
         // hr function mai query return krrahe hain 
     //  const products = await apiFeatures.query;
      res.setHeader('Access-Control-Allow-Origin','*');
