@@ -55,7 +55,7 @@ export const governementPolicy = () => async(dispatch) => {
   try {
     dispatch({ type: ALL_POLICY_REQUEST });
 
-    const data = await axios.get('https://localhost:4000/api/webscrapping');
+    const data = await axios.get('https://weegro.onrender.com/api/webscrapping');
     console.log(data.data.policy[0]);
     dispatch({
       type:ALL_POLICY_SUCCESS,
