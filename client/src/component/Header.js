@@ -1,11 +1,12 @@
 import React from 'react'
 import "./style/Home.css"
+import logo from "./image/logo192.png"
 
 const Header = () => {
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light">
-          <a className="navbar-brand" href="/">WeeGro</a>
+      <img src={logo} alt="logo" />
           <button
             className="navbar-toggler"
             type="button"
