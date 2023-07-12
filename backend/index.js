@@ -16,6 +16,7 @@ exports.getQuotes = async (req, res,next) => {
         "--single-process",
       ]
     });
+  })
     const page = await browser.newPage();
     await page.goto("https://www.startupindia.gov.in/content/sih/en/startupgov/regulatory_updates.html", {
       waitUntil: "domcontentloaded",
@@ -35,7 +36,6 @@ exports.getQuotes = async (req, res,next) => {
         column.innerText);
       });
     });
-  })
     await browser.close();
     // console.log(result);
     
