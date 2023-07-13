@@ -1,6 +1,14 @@
 # Getting Started with WEE-GRO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## `Few details about my Project ->`
+
+#### ♦️Innovative Solution for generating funding for startups.
+#### ♦️A React based web app to provide platform to both startups and investors to collab.
+#### ♦️Efficiency of startup is predicted using Machine Learning hence generating a trust for investors to invest in startups.
+#### ♦️Implementing React-redux for fetching data from backend and used MONGODB Atlas for storing data.
+#### ♦️Puppeteer used for Web scrapping government Scheme in real time.
+
+<br>
 
 ## Available Scripts
 
